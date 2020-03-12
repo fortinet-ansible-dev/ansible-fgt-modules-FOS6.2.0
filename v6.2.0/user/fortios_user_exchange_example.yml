@@ -1,0 +1,27 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure MS Exchange server entries.
+    fortios_user_exchange:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      user_exchange:
+        addr_type: "ipv4"
+        auth_level: "low"
+        connect_protocol: "rpc-over-tcp"
+        domain_name: "<your_own_value>"
+        ip: "<your_own_value>"
+        ip6: "<your_own_value>"
+        name: "default_name_9"
+        password: "<your_own_value>"
+        server_name: "<your_own_value>"
+        username: "<your_own_value>"

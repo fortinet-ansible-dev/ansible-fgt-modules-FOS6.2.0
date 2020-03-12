@@ -1,0 +1,107 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure consolidated IPv4/IPv6 policies.
+    fortios_firewall_consolidated_policy:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      firewall_consolidated_policy:
+        action: "accept"
+        app_category:
+         -
+            id:  "5"
+        app_group:
+         -
+            name: "default_name_7 (source application.group.name)"
+        application:
+         -
+            id:  "9"
+        application_list: "<your_own_value> (source application.list.name)"
+        av_profile: "<your_own_value> (source antivirus.profile.name)"
+        cifs_profile: "<your_own_value> (source cifs.profile.name)"
+        comments: "<your_own_value>"
+        diffserv_forward: "enable"
+        diffserv_reverse: "enable"
+        diffservcode_forward: "<your_own_value>"
+        diffservcode_rev: "<your_own_value>"
+        dlp_sensor: "<your_own_value> (source dlp.sensor.name)"
+        dnsfilter_profile: "<your_own_value> (source dnsfilter.profile.name)"
+        dstaddr4:
+         -
+            name: "default_name_21 (source firewall.address.name firewall.addrgrp.name firewall.vip.name firewall.vipgrp.name system.external-resource.name)"
+        dstaddr6:
+         -
+            name: "default_name_23 (source firewall.address6.name firewall.addrgrp6.name firewall.vip6.name firewall.vipgrp6.name system.external-resource.name)"
+        dstintf:
+         -
+            name: "default_name_25 (source system.interface.name system.zone.name)"
+        emailfilter_profile: "<your_own_value> (source emailfilter.profile.name)"
+        fixedport: "enable"
+        groups:
+         -
+            name: "default_name_29 (source user.group.name)"
+        http_policy_redirect: "enable"
+        icap_profile: "<your_own_value> (source icap.profile.name)"
+        inbound: "enable"
+        inspection_mode: "proxy"
+        ippool: "enable"
+        ips_sensor: "<your_own_value> (source ips.sensor.name)"
+        logtraffic: "all"
+        logtraffic_start: "enable"
+        name: "default_name_38"
+        nat: "enable"
+        outbound: "enable"
+        per_ip_shaper: "<your_own_value> (source firewall.shaper.per-ip-shaper.name)"
+        policyid: "42"
+        poolname4:
+         -
+            name: "default_name_44 (source firewall.ippool.name)"
+        poolname6:
+         -
+            name: "default_name_46 (source firewall.ippool6.name)"
+        profile_group: "<your_own_value> (source firewall.profile-group.name)"
+        profile_protocol_options: "<your_own_value> (source firewall.profile-protocol-options.name)"
+        profile_type: "single"
+        schedule: "<your_own_value> (source firewall.schedule.onetime.name firewall.schedule.recurring.name firewall.schedule.group.name)"
+        service:
+         -
+            name: "default_name_52 (source firewall.service.custom.name firewall.service.group.name)"
+        session_ttl: "53"
+        srcaddr4:
+         -
+            name: "default_name_55 (source firewall.address.name firewall.addrgrp.name system.external-resource.name)"
+        srcaddr6:
+         -
+            name: "default_name_57 (source firewall.address6.name firewall.addrgrp6.name system.external-resource.name)"
+        srcintf:
+         -
+            name: "default_name_59 (source system.interface.name system.zone.name)"
+        ssh_filter_profile: "<your_own_value> (source ssh-filter.profile.name)"
+        ssh_policy_redirect: "enable"
+        ssl_ssh_profile: "<your_own_value> (source firewall.ssl-ssh-profile.name)"
+        status: "enable"
+        tcp_mss_receiver: "64"
+        tcp_mss_sender: "65"
+        traffic_shaper: "<your_own_value> (source firewall.shaper.traffic-shaper.name)"
+        traffic_shaper_reverse: "<your_own_value> (source firewall.shaper.traffic-shaper.name)"
+        url_category:
+         -
+            id:  "69"
+        users:
+         -
+            name: "default_name_71 (source user.local.name)"
+        utm_status: "enable"
+        uuid: "<your_own_value>"
+        voip_profile: "<your_own_value> (source voip.profile.name)"
+        vpntunnel: "<your_own_value> (source vpn.ipsec.phase1.name vpn.ipsec.manualkey.name)"
+        waf_profile: "<your_own_value> (source waf.profile.name)"
+        webfilter_profile: "<your_own_value> (source webfilter.profile.name)"

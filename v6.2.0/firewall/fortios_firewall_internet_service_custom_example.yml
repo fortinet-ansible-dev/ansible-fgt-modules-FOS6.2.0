@@ -1,0 +1,32 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure custom Internet Services.
+    fortios_firewall_internet_service_custom:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      firewall_internet_service_custom:
+        comment: "Comment."
+        entry:
+         -
+            dst:
+             -
+                name: "default_name_6 (source firewall.address.name firewall.addrgrp.name)"
+            id:  "7"
+            port_range:
+             -
+                end_port: "9"
+                id:  "10"
+                start_port: "11"
+            protocol: "12"
+        name: "default_name_13"
+        reputation: "14 (source firewall.internet-service-reputation.id)"

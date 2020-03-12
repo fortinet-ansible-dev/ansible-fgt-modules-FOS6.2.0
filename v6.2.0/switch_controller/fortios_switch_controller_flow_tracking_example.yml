@@ -1,0 +1,35 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure FortiSwitch flow tracking and export via ipfix/netflow.
+    fortios_switch_controller_flow_tracking:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      switch_controller_flow_tracking:
+        aggregates:
+         -
+            id:  "4"
+            ip: "<your_own_value>"
+        collector_ip: "<your_own_value>"
+        collector_port: "7"
+        format: "netflow1"
+        level: "vlan"
+        max_export_pkt_size: "10"
+        sample_mode: "local"
+        sample_rate: "12"
+        timeout_general: "13"
+        timeout_icmp: "14"
+        timeout_max: "15"
+        timeout_tcp: "16"
+        timeout_tcp_fin: "17"
+        timeout_tcp_rst: "18"
+        timeout_udp: "19"
+        transport: "udp"

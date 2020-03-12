@@ -1,0 +1,65 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Action for automation stitches.
+    fortios_system_automation_action:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      system_automation_action:
+        action_type: "email"
+        alicloud_access_key_id: "<your_own_value>"
+        alicloud_access_key_secret: "<your_own_value>"
+        alicloud_account_id: "<your_own_value>"
+        alicloud_function: "<your_own_value>"
+        alicloud_function_authorization: "anonymous"
+        alicloud_function_domain: "<your_own_value>"
+        alicloud_region: "<your_own_value>"
+        alicloud_service: "<your_own_value>"
+        alicloud_version: "<your_own_value>"
+        aws_api_id: "<your_own_value>"
+        aws_api_key: "<your_own_value>"
+        aws_api_path: "<your_own_value>"
+        aws_api_stage: "<your_own_value>"
+        aws_domain: "<your_own_value>"
+        aws_region: "<your_own_value>"
+        azure_api_key: "<your_own_value>"
+        azure_app: "<your_own_value>"
+        azure_domain: "<your_own_value>"
+        azure_function: "<your_own_value>"
+        azure_function_authorization: "anonymous"
+        delay: "24"
+        email_body: "<your_own_value>"
+        email_from: "<your_own_value>"
+        email_subject: "<your_own_value>"
+        email_to:
+         -
+            name: "default_name_29"
+        gcp_function: "<your_own_value>"
+        gcp_function_domain: "<your_own_value>"
+        gcp_function_region: "<your_own_value>"
+        gcp_project: "<your_own_value>"
+        headers:
+         -
+            header: "<your_own_value>"
+        http_body: "<your_own_value>"
+        method: "post"
+        minimum_interval: "38"
+        name: "default_name_39"
+        port: "40"
+        protocol: "http"
+        required: "enable"
+        script: "<your_own_value>"
+        sdn_connector:
+         -
+            name: "default_name_45 (source system.sdn-connector.name)"
+        security_tag: "<your_own_value>"
+        uri: "<your_own_value>"

@@ -1,0 +1,140 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure OSPF.
+    fortios_router_ospf:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      router_ospf:
+        abr_type: "cisco"
+        area:
+         -
+            authentication: "none"
+            default_cost: "6"
+            filter_list:
+             -
+                direction: "in"
+                id:  "9"
+                list: "<your_own_value> (source router.access-list.name router.prefix-list.name)"
+            id:  "11"
+            nssa_default_information_originate: "enable"
+            nssa_default_information_originate_metric: "13"
+            nssa_default_information_originate_metric_type: "1"
+            nssa_redistribution: "enable"
+            nssa_translator_role: "candidate"
+            range:
+             -
+                advertise: "disable"
+                id:  "19"
+                prefix: "<your_own_value>"
+                substitute: "<your_own_value>"
+                substitute_status: "enable"
+            shortcut: "disable"
+            stub_type: "no-summary"
+            type: "regular"
+            virtual_link:
+             -
+                authentication: "none"
+                authentication_key: "<your_own_value>"
+                dead_interval: "29"
+                hello_interval: "30"
+                md5_keychain: "<your_own_value> (source router.key-chain.name)"
+                md5_keys:
+                 -
+                    id:  "33"
+                    key_string: "<your_own_value>"
+                name: "default_name_35"
+                peer: "<your_own_value>"
+                retransmit_interval: "37"
+                transmit_delay: "38"
+        auto_cost_ref_bandwidth: "39"
+        bfd: "enable"
+        database_overflow: "enable"
+        database_overflow_max_lsas: "42"
+        database_overflow_time_to_recover: "43"
+        default_information_metric: "44"
+        default_information_metric_type: "1"
+        default_information_originate: "enable"
+        default_information_route_map: "<your_own_value> (source router.route-map.name)"
+        default_metric: "48"
+        distance: "49"
+        distance_external: "50"
+        distance_inter_area: "51"
+        distance_intra_area: "52"
+        distribute_list:
+         -
+            access_list: "<your_own_value> (source router.access-list.name)"
+            id:  "55"
+            protocol: "connected"
+        distribute_list_in: "<your_own_value> (source router.access-list.name router.prefix-list.name)"
+        distribute_route_map_in: "<your_own_value> (source router.route-map.name)"
+        log_neighbour_changes: "enable"
+        neighbor:
+         -
+            cost: "61"
+            id:  "62"
+            ip: "<your_own_value>"
+            poll_interval: "64"
+            priority: "65"
+        network:
+         -
+            area: "<your_own_value>"
+            id:  "68"
+            prefix: "<your_own_value>"
+        ospf_interface:
+         -
+            authentication: "none"
+            authentication_key: "<your_own_value>"
+            bfd: "global"
+            cost: "74"
+            database_filter_out: "enable"
+            dead_interval: "76"
+            hello_interval: "77"
+            hello_multiplier: "78"
+            interface: "<your_own_value> (source system.interface.name)"
+            ip: "<your_own_value>"
+            md5_keychain: "<your_own_value> (source router.key-chain.name)"
+            md5_keys:
+             -
+                id:  "83"
+                key_string: "<your_own_value>"
+            mtu: "85"
+            mtu_ignore: "enable"
+            name: "default_name_87"
+            network_type: "broadcast"
+            prefix_length: "89"
+            priority: "90"
+            resync_timeout: "91"
+            retransmit_interval: "92"
+            status: "disable"
+            transmit_delay: "94"
+        passive_interface:
+         -
+            name: "default_name_96 (source system.interface.name)"
+        redistribute:
+         -
+            metric: "98"
+            metric_type: "1"
+            name: "default_name_100"
+            routemap: "<your_own_value> (source router.route-map.name)"
+            status: "enable"
+            tag: "103"
+        restart_mode: "none"
+        restart_period: "105"
+        rfc1583_compatible: "enable"
+        router_id: "<your_own_value>"
+        spf_timers: "<your_own_value>"
+        summary_address:
+         -
+            advertise: "disable"
+            id:  "111"
+            prefix: "<your_own_value>"
+            tag: "113"

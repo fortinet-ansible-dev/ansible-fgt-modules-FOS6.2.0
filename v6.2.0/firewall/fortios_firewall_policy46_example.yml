@@ -1,0 +1,47 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure IPv4 to IPv6 policies.
+    fortios_firewall_policy46:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      firewall_policy46:
+        action: "accept"
+        comments: "<your_own_value>"
+        dstaddr:
+         -
+            name: "default_name_6 (source firewall.vip46.name firewall.vipgrp46.name)"
+        dstintf: "<your_own_value> (source system.interface.name system.zone.name)"
+        fixedport: "enable"
+        ippool: "enable"
+        logtraffic: "enable"
+        logtraffic_start: "enable"
+        per_ip_shaper: "<your_own_value> (source firewall.shaper.per-ip-shaper.name)"
+        permit_any_host: "enable"
+        policyid: "14"
+        poolname:
+         -
+            name: "default_name_16 (source firewall.ippool6.name)"
+        schedule: "<your_own_value> (source firewall.schedule.onetime.name firewall.schedule.recurring.name firewall.schedule.group.name)"
+        service:
+         -
+            name: "default_name_19 (source firewall.service.custom.name firewall.service.group.name)"
+        srcaddr:
+         -
+            name: "default_name_21 (source firewall.address.name firewall.addrgrp.name)"
+        srcintf: "<your_own_value> (source system.zone.name system.interface.name)"
+        status: "enable"
+        tcp_mss_receiver: "24"
+        tcp_mss_sender: "25"
+        traffic_shaper: "<your_own_value> (source firewall.shaper.traffic-shaper.name)"
+        traffic_shaper_reverse: "<your_own_value> (source firewall.shaper.traffic-shaper.name)"
+        uuid: "<your_own_value>"

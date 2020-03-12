@@ -1,0 +1,19 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Override FortiAnalyzer Cloud settings.
+    fortios_log_fortianalyzer_cloud_override_setting:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      log_fortianalyzer_cloud_override_setting:
+        faz_type: "3"
+        override: "enable"
+        status: "enable"

@@ -1,0 +1,37 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure CIFS profile.
+    fortios_cifs_profile:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      cifs_profile:
+        domain_controller: "<your_own_value> (source cifs.domain-controller.server-name)"
+        file_filter:
+            entries:
+             -
+                action: "log"
+                comment: "Comment."
+                direction: "incoming"
+                file_type:
+                 -
+                    name: "default_name_10 (source antivirus.filetype.name)"
+                filter: "<your_own_value>"
+                protocol: "cifs"
+            log: "enable"
+            status: "enable"
+        name: "default_name_15"
+        server_credential_type: "none"
+        server_keytab:
+         -
+            keytab: "<your_own_value>"
+            principal: "<your_own_value>"

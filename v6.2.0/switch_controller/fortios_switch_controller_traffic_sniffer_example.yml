@@ -1,0 +1,39 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure FortiSwitch RSPAN/ERSPAN traffic sniffing parameters.
+    fortios_switch_controller_traffic_sniffer:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      switch_controller_traffic_sniffer:
+        erspan_ip: "<your_own_value>"
+        target_ip:
+         -
+            description: "<your_own_value>"
+            dst_entry_id: "6"
+            ip: "<your_own_value>"
+            src_entry_id: "8"
+        target_mac:
+         -
+            description: "<your_own_value>"
+            dst_entry_id: "11"
+            mac: "<your_own_value>"
+            src_entry_id: "13"
+        target_port:
+         -
+            description: "<your_own_value>"
+            in_ports:
+             -
+                name: "default_name_17"
+            out_ports:
+             -
+                name: "default_name_19"
+            switch_id: "<your_own_value> (source switch-controller.managed-switch.switch-id)"

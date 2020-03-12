@@ -1,0 +1,71 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure AntiSpam profiles.
+    fortios_emailfilter_profile:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      emailfilter_profile:
+        comment: "Comment."
+        external: "enable"
+        file_filter:
+            entries:
+             -
+                action: "log"
+                comment: "Comment."
+                encryption: "yes"
+                file_type:
+                 -
+                    name: "default_name_11 (source antivirus.filetype.name)"
+                filter: "<your_own_value>"
+                protocol: "smtp"
+            log: "enable"
+            scan_archive_contents: "enable"
+            status: "enable"
+        gmail:
+            log: "enable"
+        imap:
+            action: "pass"
+            log: "enable"
+            tag_msg: "<your_own_value>"
+            tag_type: "subject"
+        mapi:
+            action: "pass"
+            log: "enable"
+        msn_hotmail:
+            log: "enable"
+        name: "default_name_29"
+        options: "bannedword"
+        pop3:
+            action: "pass"
+            log: "enable"
+            tag_msg: "<your_own_value>"
+            tag_type: "subject"
+        replacemsg_group: "<your_own_value> (source system.replacemsg-group.name)"
+        smtp:
+            action: "pass"
+            hdrip: "disable"
+            local_override: "disable"
+            log: "enable"
+            tag_msg: "<your_own_value>"
+            tag_type: "subject"
+        spam_bwl_table: "44 (source emailfilter.bwl.id)"
+        spam_bword_table: "45 (source emailfilter.bword.id)"
+        spam_bword_threshold: "46"
+        spam_filtering: "enable"
+        spam_iptrust_table: "48 (source emailfilter.iptrust.id)"
+        spam_log: "disable"
+        spam_log_fortiguard_response: "disable"
+        spam_mheader_table: "51 (source emailfilter.mheader.id)"
+        spam_rbl_table: "52 (source emailfilter.dnsbl.id)"
+        yahoo_mail:
+            log: "enable"

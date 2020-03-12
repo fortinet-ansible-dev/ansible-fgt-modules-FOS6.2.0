@@ -1,0 +1,44 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure FortiSwitch LLDP profiles.
+    fortios_switch_controller_lldp_profile:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      switch_controller_lldp_profile:
+        tlvs_802dot1: "port-vlan-id"
+        tlvs_802dot3: "max-frame-size"
+        auto_isl: "disable"
+        auto_isl_hello_timer: "6"
+        auto_isl_port_group: "7"
+        auto_isl_receive_timeout: "8"
+        custom_tlvs:
+         -
+            information_string: "<your_own_value>"
+            name: "default_name_11"
+            oui: "<your_own_value>"
+            subtype: "13"
+        med_location_service:
+         -
+            name: "default_name_15"
+            status: "disable"
+            sys_location_id: "<your_own_value> (source switch-controller.location.name)"
+        med_network_policy:
+         -
+            dscp: "19"
+            name: "default_name_20"
+            priority: "21"
+            status: "disable"
+            vlan: "23"
+            vlan_intf: "<your_own_value> (source system.interface.name)"
+        med_tlvs: "inventory-management"
+        name: "default_name_26"

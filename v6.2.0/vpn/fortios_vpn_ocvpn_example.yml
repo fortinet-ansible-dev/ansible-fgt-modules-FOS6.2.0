@@ -1,0 +1,37 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure Overlay Controller VPN settings.
+    fortios_vpn_ocvpn:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      vpn_ocvpn:
+        auto_discovery: "enable"
+        eap: "enable"
+        eap_users: "<your_own_value> (source user.group.name)"
+        ha_alias: "<your_own_value>"
+        nat: "enable"
+        overlays:
+         -
+            assign_ip: "enable"
+            id:  "10"
+            ipv4_end_ip: "<your_own_value>"
+            ipv4_start_ip: "<your_own_value>"
+            name: "default_name_13"
+            subnets:
+             -
+                id:  "15"
+                interface: "<your_own_value> (source system.interface.name)"
+                subnet: "<your_own_value>"
+                type: "subnet"
+        poll_interval: "19"
+        role: "spoke"
+        status: "enable"

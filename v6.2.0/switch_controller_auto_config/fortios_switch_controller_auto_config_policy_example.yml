@@ -1,0 +1,21 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Policy definitions which can define the behavior on auto configured interfaces.
+    fortios_switch_controller_auto_config_policy:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      switch_controller_auto_config_policy:
+        name: "default_name_3"
+        poe_status: "enable"
+        qos_policy: "<your_own_value> (source switch-controller.qos.qos-policy.name)"
+        storm_control_policy: "<your_own_value> (source switch-controller.storm-control-policy.name)"

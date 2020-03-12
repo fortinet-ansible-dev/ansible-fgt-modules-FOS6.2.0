@@ -1,0 +1,19 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Policies which are applied automatically to all ISL/ICL/FortiLink interfaces.
+    fortios_switch_controller_auto_config_default:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      switch_controller_auto_config_default:
+        fgt_policy: "<your_own_value> (source switch-controller.auto-config.policy.name)"
+        icl_policy: "<your_own_value> (source switch-controller.auto-config.policy.name)"
+        isl_policy: "<your_own_value> (source switch-controller.auto-config.policy.name)"

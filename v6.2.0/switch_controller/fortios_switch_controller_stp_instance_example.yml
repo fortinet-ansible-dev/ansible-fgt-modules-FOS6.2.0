@@ -1,0 +1,21 @@
+- hosts: localhost
+  vars:
+   host: "192.168.122.40"
+   username: "admin"
+   password: ""
+   vdom: "root"
+   ssl_verify: "False"
+  tasks:
+  - name: Configure FortiSwitch multiple spanning tree protocol (MSTP) instances.
+    fortios_switch_controller_stp_instance:
+      host:  "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      vdom:  "{{ vdom }}"
+      https: "False"
+      state: "present"
+      switch_controller_stp_instance:
+        id:  "3"
+        vlan_range:
+         -
+            vlan_name: "<your_own_value> (source system.interface.name)"
